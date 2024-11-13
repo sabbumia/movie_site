@@ -32,10 +32,14 @@ const BookingPage = () => {
           Select Date:
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
         </label>
-
         <label>
-          Select Time:
-          <input type="time" value={time} onChange={(e) => setTime(e.target.value)} />
+          Select Show Time:
+          <select value={time} onChange={(e) => setTime(e.target.value)}>
+            <option value="">Choose Show Time</option>
+            <option value="12.00 PM">12.00 PM</option>
+            <option value="4.00 PM">4.00 PM</option>
+            <option value="8.00 PM">8.00 PM</option>
+          </select>
         </label>
 
         <label>

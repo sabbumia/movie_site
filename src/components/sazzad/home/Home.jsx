@@ -48,7 +48,7 @@ const Home = () => {
             <p className="home__movieRating">⭐ 8.7/10</p>
             <button
               className="home__bookButton"
-              onClick={() => handleBook('Movie Title 1', 'https://m.media-amazon.com/images/I/71tIm0Xxr2L._AC_UF1000,1000_QL80_.jpg')}
+              onClick={() => handleBook('John Wick', 'https://m.media-amazon.com/images/I/71tIm0Xxr2L._AC_UF1000,1000_QL80_.jpg')}
             >
               Book
             </button>
@@ -65,7 +65,7 @@ const Home = () => {
             <p className="home__movieRating">⭐ 7.7/10</p>
             <button
               className="home__bookButton"
-              onClick={() => handleBook('Movie Title 1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKojByHp3mNyxfSxVXYwxPaMlmufKgvMSsG1-RlNYimO4wbeb5zPyl0vziKDIH23Bwha8&usqp=CAU')}
+              onClick={() => handleBook('James Bond', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKojByHp3mNyxfSxVXYwxPaMlmufKgvMSsG1-RlNYimO4wbeb5zPyl0vziKDIH23Bwha8&usqp=CAU')}
             >
               Book
             </button>
@@ -82,7 +82,7 @@ const Home = () => {
             <p className="home__movieRating">⭐ 8.9/10</p>
             <button
               className="home__bookButton"
-              onClick={() => handleBook('Movie Title 1', 'https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2023/05/04/2202473539626/MIDR1_US_2023_Amazon_1920x1080_2538342_1920x1080.jpg')}
+              onClick={() => handleBook('Mission Impossible', 'https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2023/05/04/2202473539626/MIDR1_US_2023_Amazon_1920x1080_2538342_1920x1080.jpg')}
             >
               Book
             </button>
