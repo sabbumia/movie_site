@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './BookingPage.css';
+import Header from '../home/pageComponents/Header';
+import Footer from '../home/pageComponents/Footer';
 
 const BookingPage = () => {
   const location = useLocation();
@@ -24,6 +26,7 @@ const BookingPage = () => {
 
   return (
     <div className="bookingPage">
+      <Header />
       <h1>Book {movieTitle}</h1>
       <img className="bookingPage__poster" src={moviePoster} alt={movieTitle} />
 
@@ -71,6 +74,7 @@ const BookingPage = () => {
       <button className="bookingPage__confirmButton" onClick={confirmBooking}>
         Confirm Booking
       </button>
+      <Footer />
     </div>
   );
 };

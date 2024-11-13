@@ -30,8 +30,8 @@
     z-index: -1;
   }
   .bookingPage__poster {
-    max-width: 500px; /* Adjust this value to set the desired max width */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 400px; /* Adjust this value to set the desired max width */
+    height: 300px; /* Maintain aspect ratio */
     border-radius: 5px;
     margin-bottom: 70px;
   }
@@ -141,6 +141,7 @@
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-bottom: 60px ;
   }
   
   .bookingPage__confirmButton:hover {

@@ -41,7 +41,7 @@ import React from 'react';
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/sazzad/home/Home';
-import BookingPage from './components/sazzad/home/BookingPage';
+import BookingPage from './components/sazzad/booking/BookingPage';
 
 const App = () => {
   return (
