@@ -3,6 +3,7 @@
 import React from 'react';
 import Header from './pageComponents/Header';  // Import Header component
 import "./Home.css";
+import Footer from './pageComponents/Footer';
 
 const Home = () => {
   return (
@@ -30,8 +31,6 @@ const Home = () => {
 
       <div className="home__bannerContents">
         <h1 className="home__title">Popular Movies</h1>
-        <button className="home__button">Play</button>
-        <button className="home__button">My List</button>
      </div>
 
       {/* Movie section (example) */}
@@ -75,6 +74,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

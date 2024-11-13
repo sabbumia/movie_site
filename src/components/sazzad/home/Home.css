@@ -54,9 +54,9 @@
   }
   
   .home__bannerContents {
-    position: absolute;
-    bottom: 40px;
-    left: 30px;
+    /* position: absolute; */
+    /* bottom: 40px;
+    left: 30px; */
     z-index: 2; /* Make sure the banner content stays on top of the image */
   }
   
