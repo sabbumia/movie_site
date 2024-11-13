@@ -1,0 +1,91 @@
+/* src/components/Header.css */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;  /* Transition added for smooth background change */
+    background-color: transparent;  /* Initially transparent */
+  }
+  
+  .header__logo img {
+    width: 100px;
+    object-fit: contain;
+  }
+  
+  .nav_img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .header__nav {
+    display: flex;
+    gap: 20px;  /* Space between navigation items */
+  }
+  
+  .header__navItem {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .header__navItem:hover {
+    color: #e50914;
+  }
+  
+  .header__controls {
+    display: flex;
+    justify-content: flex-end;  /* Align profile to the right */
+    gap: 15px;
+  }
+  
+  .header__avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .header--scrolled {
+    background-color: rgba(0, 0, 0, 0.8);  /* Darken header when scrolled */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Add shadow to the header when scrolled */
+  }
+  
+  /* New styles for centering the search box in front of the home banner */
+  .header__searchWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;  /* Adjust this as needed */
+    z-index: 200;  /* Ensure it is in front of the banner */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header__searchCentered {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    text-align: center;
+  }
+  
+  .header__searchCentered::placeholder {
+    color: black;
+    text-align: center;
+  }
+  
