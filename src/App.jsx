@@ -34,17 +34,24 @@
 
 // export default App
 
-import { useState } from 'react'
+
+// src/App.jsx
+
+import React from 'react';
 import './App.css'
-import Home from "./components/sazzad/home/Home";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/sazzad/home/Home';
+import BookingPage from './components/sazzad/home/BookingPage';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Home />
-      
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
