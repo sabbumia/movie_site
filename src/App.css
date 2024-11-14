@@ -1,0 +1,60 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .movie-list-page {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-bar input, .filter-bar select, .filter-bar button {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+  }
+  
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .movie-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .movie-name {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .movie-rating {
+    color: #6c757d;
+  }
+   */

@@ -41,6 +41,7 @@ import React from 'react';
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/sazzad/home/Home';
+import MovieList from './components/sazzad/movieList/MovieList';
 import BookingPage from './components/sazzad/booking/BookingPage';
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<MovieList />} />
         <Route path="/booking" element={<BookingPage />} />
       </Routes>
     </Router>
