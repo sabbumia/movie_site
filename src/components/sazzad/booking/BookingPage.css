@@ -148,6 +148,55 @@
     background-color: #ff3311;
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .seatGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  
+  .seat {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .seat.available {
+    background-color: #ccc; /* Gray for available seats */
+  }
+  
+  .seat.booked {
+    background-color: red; /* Red for booked seats */
+    cursor: not-allowed;
+  }
+  
+  .seat.selected {
+    background-color: green; /* Green for selected seats */
+  }
+  
+
+
+
+
+
+  
   /* Responsive adjustment for smaller screens */
   @media (max-width: 768px) {
     .bookingPage__options {
@@ -159,4 +208,21 @@
       font-size: 1.1rem;
     }
   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
