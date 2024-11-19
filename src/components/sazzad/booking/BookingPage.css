@@ -18,6 +18,15 @@
     z-index: 1;
   }
   
+
+.bookingPage header,
+.bookingPage footer {
+  width: 100%;
+  padding: 0 0;
+  /* background-color: #34495e; */
+  color: white;
+  text-align: center;
+}
   /* Dark overlay to improve text readability over the background image */
   .bookingPage::before {
     content: '';

@@ -37,26 +37,27 @@
 
 // src/App.jsx
 
-import React from 'react';
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Home from './components/sazzad/home/Home';
 import Login from './components/sazzad/Login';
+import Profile from './components/sazzad/Profile';
 import Register from './components/sazzad/Register';
 import MovieList from './components/sazzad/movieList/MovieList';
 import BookingPage from './components/sazzad/booking/BookingPage';
 
 const App = () => {
+  console.log("Rendering App Component..."); // Debug log
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/movies" element={<MovieList />} />
-        <Route path="/booking" element={<BookingPage />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/movies" element={<MovieList />} />
+      <Route path="/booking" element={<BookingPage />} />
+    </Routes>
   );
 };
 

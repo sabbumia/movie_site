@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importing useNavigate for redirect
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginSuccess } from "../../store/authSlice"; // Import loginSuccess action
 import "./Login.css";
 import Header from "./home/pageComponents/Header";
 import Footer from "./home/pageComponents/Footer";
@@ -10,6 +12,7 @@ const Login = () => {
     password: "",
   });
 
+  const dispatch = useDispatch();
   const navigate = useNavigate(); // Initialize navigate function for redirect
 
   const handleChange = (e) => {
@@ -27,7 +30,9 @@ const Login = () => {
       });
       const result = await response.json();
       if (result.success) {
-        alert("Login successful!");
+        // Dispatch loginSuccess to store the userId in Redux
+        dispatch(loginSuccess({ userId: result.userId }));
+        alert("Login successful! User ID: " + result.userId);
         navigate("/"); // Redirect to home page after successful login
       } else {
         alert(result.message || "Login failed!");
@@ -36,6 +41,11 @@ const Login = () => {
       console.error(error);
       alert("An error occurred.");
     }
+  };
+
+  // Function to handle register button click
+  const handleRegisterClick = () => {
+    navigate("/register"); // Redirect to the register page
   };
 
   return (
@@ -62,6 +72,10 @@ const Login = () => {
           />
           <button type="submit">Login</button>
         </form>
+        {/* Message to suggest registration if user doesn't have an account */}
+        <div className="register-message">
+          <p>Don't have an account? <button onClick={handleRegisterClick} className="register-btn">Register here</button></p>
+        </div>
       </div>
       <Footer />
     </div>
