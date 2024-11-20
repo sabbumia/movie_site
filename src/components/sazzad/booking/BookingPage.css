@@ -208,6 +208,39 @@
   background-color: gray; /* Gray for available seats */
 }
 
+
+
+
+.seatGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Adjust number of columns */
+  gap: 10px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.seat.booked {
+  background-color: red; /* Red for booked seats */
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background-color: green; /* Green for selected seats */
+}
+
+.seat.available {
+  background-color: gray; /* Gray for available seats */
+}
+
+
 /* Responsive adjustment for smaller screens */
 @media (max-width: 768px) {
   .bookingPage__options {

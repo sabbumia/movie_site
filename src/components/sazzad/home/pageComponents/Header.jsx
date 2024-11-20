@@ -42,7 +42,7 @@ const Header = () => {
         {/* Logo */}
         <div className="header__logo">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/320px-Netflix_2015_logo.svg.png"
+            src="https://i.ibb.co.com/SxFZYcm/cholo-dekhi-logo.png"
             alt="Netflix Logo"
           />
         </div>

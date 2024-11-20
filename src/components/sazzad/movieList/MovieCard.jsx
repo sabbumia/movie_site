@@ -32,6 +32,53 @@
 
 
 
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux"; // Access Redux store
+// import "./MovieCard.css";
+
+// function MovieCard({ movie }) {
+//   const navigate = useNavigate();
+//   const { userId, isAuthenticated } = useSelector((state) => state.auth); // Access userId from Redux store
+
+//   console.log("MovieCard: Authenticated:", isAuthenticated);
+//   console.log("MovieCard: User ID:", userId);
+//   // Navigate to the booking page with movie details
+//   const handleBooking = () => {
+//     if (!isAuthenticated) {
+//       alert("Please log in to book a movie.");
+//       navigate("/login"); // Redirect to login page
+//       return;
+//     }
+
+//     navigate("/booking", {
+//       state: {
+//         movieTitle: movie.name,
+//         moviePoster: movie.imageLink,
+//         movieId: movie._id,
+//         userId: userId, // Pass actual userId from Redux
+//       },
+//     });
+//   };
+
+//   return (
+//     <div className="movie-card">
+//       <img src={movie.imageLink} alt={`${movie.name} poster`} className="movie-poster" />
+//       <h3 className="movie-name">{movie.name}</h3>
+//       <p className="movie-rating">Rating: {movie.rating}</p>
+//       <button onClick={handleBooking} className="book-button">
+//         Book Now
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default MovieCard;
+
+
+
+
+// MovieCard.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"; // Access Redux store
@@ -43,6 +90,7 @@ function MovieCard({ movie }) {
 
   console.log("MovieCard: Authenticated:", isAuthenticated);
   console.log("MovieCard: User ID:", userId);
+
   // Navigate to the booking page with movie details
   const handleBooking = () => {
     if (!isAuthenticated) {
@@ -63,12 +111,20 @@ function MovieCard({ movie }) {
 
   return (
     <div className="movie-card">
-      <img src={movie.imageLink} alt={`${movie.name} poster`} className="movie-poster" />
-      <h3 className="movie-name">{movie.name}</h3>
-      <p className="movie-rating">Rating: {movie.rating}</p>
+      <img
+        src={movie.imageLink}
+        alt={`${movie.name} poster`}
+        className="movie-poster"
+      />
+      <div className="movie-info">
+        <h3 className="movie-name">{movie.name}</h3>
+        <p className="movie-year">Year: {movie.year}</p>
+        <p className="movie-category">Category: {movie.category}</p>
+        <p className="movie-type">Type: {movie.type}</p>
+      </div>
       <button onClick={handleBooking} className="book-button">
-        Book Now
-      </button>
+          Book Now
+        </button>
     </div>
   );
 }

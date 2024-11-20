@@ -585,6 +585,7 @@ const BookingPage = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [seatsStatus, setSeatsStatus] = useState([]); // Array representing seat availability
 
+  // Fetch seat availability based on selected date and time
   const fetchSeatsStatus = async () => {
     if (!date || !time) return;
 
@@ -604,10 +605,12 @@ const BookingPage = () => {
     }
   };
 
+  // Refresh seat status when the date or time changes
   useEffect(() => {
     fetchSeatsStatus();
   }, [date, time]); // Fetch seats whenever date or time changes
 
+  // Handle seat selection
   const handleSeatClick = (seatIndex) => {
     if (seatsStatus[seatIndex] === 'booked') {
       return; // Prevent selecting already booked seats
@@ -620,11 +623,13 @@ const BookingPage = () => {
     );
   };
 
+  // Calculate the total price based on selected seat type
   const calculateTotalPrice = () => {
     const seatPrices = { VIP: 500, Regular: 300, Economy: 200 };
     return selectedSeats.length * (seatPrices[seatType] || 0);
   };
 
+  // Confirm the booking and send it to the backend
   const confirmBooking = async () => {
     if (!selectedSeats.length) {
       alert('Please select at least one seat to book.');
@@ -651,7 +656,7 @@ const BookingPage = () => {
       if (response.ok) {
         alert(`Booking confirmed for ${movieTitle}!`);
         setSelectedSeats([]); // Clear selected seats after successful booking
-        await fetchSeatsStatus(); // Immediately refresh seat statuses
+        await fetchSeatsStatus(); // Refresh seat statuses
       } else {
         const errorData = await response.json();
         alert(`Failed to confirm booking: ${errorData.message}`);
@@ -719,4 +724,5 @@ const BookingPage = () => {
 };
 
 export default BookingPage;
+
 

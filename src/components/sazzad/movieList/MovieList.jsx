@@ -60,6 +60,61 @@
 
 // export default MovieList;
 
+// import React, { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { fetchMovies, filterMovies } from "../../../store/movieSlice";
+// import "./MovieList.css";
+// import Header from "../home/pageComponents/Header";
+// import Footer from "../home/pageComponents/Footer";
+// import FilterBar from "./FilterBar";
+// import MovieCard from "./MovieCard";
+
+// function MovieList() {
+//   const dispatch = useDispatch();
+
+//   // Access movies and user authentication state
+//   const { movies, filteredMovies, loading, error } = useSelector(
+//     (state) => state.movies
+//   );
+//   const { isAuthenticated } = useSelector((state) => state.auth); // Check if user is authenticated
+
+//   useEffect(() => {
+//     dispatch(fetchMovies());
+//   }, [dispatch]);
+
+//   const handleFilter = (filtered) => dispatch(filterMovies(filtered));
+
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div>Error: {error}</div>;
+//   }
+
+//   return (
+//     <div className="list-page">
+//       <Header />
+//       <div className="movie-list-page">
+//         <h1 className="title">Movie List</h1>
+//         <FilterBar movies={movies} onFilter={handleFilter} />
+//         <div className="movie-grid">
+//           {filteredMovies.map((movie) => (
+//             <MovieCard key={movie._id} movie={movie} />
+//           ))}
+//         </div>
+//       </div>
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default MovieList;
+
+
+
+
+// MovieList.jsx
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies, filterMovies } from "../../../store/movieSlice";
@@ -79,17 +134,17 @@ function MovieList() {
   const { isAuthenticated } = useSelector((state) => state.auth); // Check if user is authenticated
 
   useEffect(() => {
-    dispatch(fetchMovies());
+    dispatch(fetchMovies()); // Ensure this dispatch is calling an action that fetches data
   }, [dispatch]);
 
   const handleFilter = (filtered) => dispatch(filterMovies(filtered));
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="error">Error: {error}</div>;
   }
 
   return (
@@ -99,9 +154,13 @@ function MovieList() {
         <h1 className="title">Movie List</h1>
         <FilterBar movies={movies} onFilter={handleFilter} />
         <div className="movie-grid">
-          {filteredMovies.map((movie) => (
-            <MovieCard key={movie._id} movie={movie} />
-          ))}
+          {filteredMovies.length > 0 ? (
+            filteredMovies.map((movie) => (
+              <MovieCard key={movie.movieId} movie={movie} />
+            ))
+          ) : (
+            <div>No movies found</div>
+          )}
         </div>
       </div>
       <Footer />
@@ -110,3 +169,4 @@ function MovieList() {
 }
 
 export default MovieList;
+
