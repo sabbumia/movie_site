@@ -18,13 +18,22 @@
   z-index: 1;
 }
 
-.bookingPage header,
+.bookingPage header{
+  margin-left: 180px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .bookingPage footer {
   width: 100%;
-  padding: 0 0;
-  /* background-color: #34495e; */
-  color: white;
-  text-align: center;
+  margin-left:-20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 /* Dark overlay to improve text readability over the background image */
 .bookingPage::before {

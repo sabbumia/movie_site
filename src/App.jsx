@@ -46,6 +46,7 @@ import Profile from './components/sazzad/Profile';
 import Register from './components/sazzad/Register';
 import MovieList from './components/sazzad/movieList/MovieList';
 import BookingPage from './components/sazzad/booking/BookingPage';
+import PaymentPage from './components/sazzad/payment/PaymentGateway';
 
 const App = () => {
   console.log("Rendering App Component..."); // Debug log
@@ -57,6 +58,7 @@ const App = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/movies" element={<MovieList />} />
       <Route path="/booking" element={<BookingPage />} />
+      <Route path="/payment" element={<PaymentPage />} />
     </Routes>
   );
 };
