@@ -33,12 +33,12 @@
   font-size: 18px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap'); */
 
 .movie-list-page .title {
   font-size: 48px; 
   font-weight: bold;
-  font-family: 'Poppins', sans-serif; 
+  font-family: sans-serif; 
   background: linear-gradient(45deg, #f39c12, #ff6347, #6a5acd); 
   -webkit-background-clip: text;
   color: transparent; /* Make the gradient text visible */
