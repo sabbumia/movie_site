@@ -115,27 +115,191 @@
 
 
 // MovieList.jsx
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchMovies, filterMovies } from "../../../store/movieSlice";
-import "./MovieList.css";
-import Header from "../home/pageComponents/Header";
-import Footer from "../home/pageComponents/Footer";
-import FilterBar from "./FilterBar";
-import MovieCard from "./MovieCard";
+// import React, { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { fetchMovies, filterMovies } from "../../../store/movieSlice";
+// import "./MovieList.css";
+// import Header from "../home/pageComponents/Header";
+// import Footer from "../home/pageComponents/Footer";
+// import FilterBar from "./FilterBar";
+// import MovieCard from "./MovieCard";
+
+// function MovieList() {
+//   const dispatch = useDispatch();
+
+//   // Access movies and user authentication state
+//   const { movies, filteredMovies, loading, error } = useSelector(
+//     (state) => state.movies
+//   );
+//   const { isAuthenticated } = useSelector((state) => state.auth); // Check if user is authenticated
+
+//   useEffect(() => {
+//     dispatch(fetchMovies()); // Ensure this dispatch is calling an action that fetches data
+//   }, [dispatch]);
+
+//   const handleFilter = (filtered) => dispatch(filterMovies(filtered));
+
+//   if (loading) {
+//     return <div className="loading">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="error">Error: {error}</div>;
+//   }
+
+//   return (
+//     <div className="list-page">
+//       <Header />
+//       <div className="movie-list-page">
+//         <h1 className="title">Movie List</h1>
+//         <FilterBar movies={movies} onFilter={handleFilter} />
+//         <div className="movie-grid">
+//           {filteredMovies.length > 0 ? (
+//             filteredMovies.map((movie) => (
+//               <MovieCard key={movie.movieId} movie={movie} />
+//             ))
+//           ) : (
+//             <div>No movies found</div>
+//           )}
+//         </div>
+//       </div>
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default MovieList;
+
+// src/components/movie/MovieList.jsx
+// src/components/movie/MovieList.jsx
+
+// src/components/movie/MovieList.jsx
+
+// src/components/movie/MovieList.jsx
+
+// src/components/movie/MovieList.jsx
+// import React, { useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { useLocation } from 'react-router-dom';
+// import { fetchMovies, filterMovies } from '../../../store/movieSlice';
+// import './MovieList.css';
+// import Header from '../home/pageComponents/Header';
+// import Footer from '../home/pageComponents/Footer';
+// import FilterBar from './FilterBar';
+// import MovieCard from './MovieCard';
+
+// function MovieList() {
+//   const dispatch = useDispatch();
+//   const location = useLocation();
+
+//   // Get the search query from the URL
+//   const queryParams = new URLSearchParams(location.search);
+//   const searchQuery = queryParams.get('search') || '';
+
+//   // Access the movies and filteredMovies from Redux state
+//   const { movies, filteredMovies, loading, error } = useSelector(
+//     (state) => state.movies
+//   );
+
+//   useEffect(() => {
+//     if (movies.length === 0) {
+//       console.log('Fetching movies...');
+//       dispatch(fetchMovies());
+//     } else {
+//       console.log('Movies already fetched:', movies);
+//     }
+//   }, [dispatch, movies.length]);
+
+//   // Apply filtering when search query changes or movies are updated
+//   useEffect(() => {
+//     console.log('Current Search Query:', searchQuery);
+
+//     if (searchQuery) {
+//       // Filter movies based on search query
+//       const filtered = movies.filter((movie) =>
+//         movie.name.toLowerCase().includes(searchQuery.toLowerCase())
+//       );
+//       console.log('Filtered Movies:', filtered);
+//       dispatch(filterMovies(filtered));
+//     } else {
+//       // If no search query, reset the filter to show all movies
+//       console.log('No search query, showing all movies.');
+//       dispatch(filterMovies(movies));
+//     }
+//   }, [searchQuery, movies, dispatch]);
+
+//   // Show loading or error message
+//   if (loading) {
+//     return <div className="loading">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="error">Error: {error}</div>;
+//   }
+
+//   // Log the final list of filtered movies
+//   console.log('Filtered Movies (After Filtering):', filteredMovies);
+
+//   return (
+//     <div className="list-page">
+//       <Header />
+//       <div className="movie-list-page">
+//         <h1 className="title">Movie List</h1>
+//         <FilterBar />
+//         <div className="movie-grid">
+//           {filteredMovies.length > 0 ? (
+//             filteredMovies.map((movie) => (
+//               <MovieCard key={movie.movieId} movie={movie} />
+//             ))
+//           ) : (
+//             <div>No movies found</div>
+//           )}
+//         </div>
+//       </div>
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default MovieList;
+
+
+
+// final code.........................
+
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { fetchMovies, filterMovies } from '../../../store/movieSlice';
+import './MovieList.css';
+import Header from '../home/pageComponents/Header';
+import Footer from '../home/pageComponents/Footer';
+import FilterBar from './FilterBar';
+import MovieCard from './MovieCard';
 
 function MovieList() {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const { movies, filteredMovies, loading, error } = useSelector((state) => state.movies);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
-  // Access movies and user authentication state
-  const { movies, filteredMovies, loading, error } = useSelector(
-    (state) => state.movies
-  );
-  const { isAuthenticated } = useSelector((state) => state.auth); // Check if user is authenticated
+  const searchQuery = location.state?.query || '';  // Retrieve the query from location state
 
   useEffect(() => {
-    dispatch(fetchMovies()); // Ensure this dispatch is calling an action that fetches data
+    dispatch(fetchMovies()); // Fetch all movies when the component mounts
   }, [dispatch]);
+
+  useEffect(() => {
+    // Filter the movies based on the search query if it's available
+    if (searchQuery) {
+      const filtered = movies.filter((movie) =>
+        movie.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      dispatch(filterMovies(filtered));
+    } else {
+      dispatch(filterMovies(movies)); // Reset to all movies if no search query
+    }
+  }, [searchQuery, movies, dispatch]);
 
   const handleFilter = (filtered) => dispatch(filterMovies(filtered));
 
@@ -167,6 +331,7 @@ function MovieList() {
     </div>
   );
 }
+
 
 export default MovieList;
 
